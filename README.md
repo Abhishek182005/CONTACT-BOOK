@@ -55,7 +55,7 @@ The blueprint of this project is
 ![image](https://github.com/user-attachments/assets/d9ce164e-1a6e-4d1f-9d09-cb52c4463149)
 <br>
 <br>
-![image](https://github.com/user-attachments/assets/9f1e066a-cbd2-43e9-b965-f5986089f184)
+![image](https://github.com/user-attachments/assets/8cb941ed-cdc8-40d9-9983-cb6ff9d4db37)
 <br>
 <h3>This search functionality is also there in the modfiy section</h1>
 <br>
@@ -64,14 +64,15 @@ The blueprint of this project is
 ![image](https://github.com/user-attachments/assets/d4518b1f-1f2b-4249-a278-45b1b547de98)
 <br>
 <br>
-![image](https://github.com/user-attachments/assets/a8e92784-0151-463e-afcd-3c70726f72c7)
+
 <br>
 <br>
 <H3>DATABASE</H3>
 <br>
 <br>
 
-![image](https://github.com/user-attachments/assets/4028ad11-80a8-444b-8552-83dfe2057852)
+![image](https://github.com/user-attachments/assets/10dd618a-22f8-4798-bffa-e6e2fc4aae5b)
+
 
 
 
