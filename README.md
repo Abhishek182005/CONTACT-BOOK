@@ -7,7 +7,7 @@ It is the python-Django project with database used Mysql. It is a contact book w
    <li> see the list</li>
    <li>search</li>
 </ul>
-I have tried new features of Django like authentication, error messages and many more and bootstrap reponsiveness.<br>
+I have tried new features of Django like authentication, error messages, bootstrap reponsiveness and many more.<br>
 The project of Library Management used sqllite and this project used Mysql. <br>
 The blueprint of this project is
 <a href="https://github.com/Abhishek182005/CONTACT-BOOK/blob/main/CONTACT%20BOOK.py">ContactBook.py</a>
