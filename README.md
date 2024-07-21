@@ -37,13 +37,10 @@ The blueprint of this project is
 ![image](https://github.com/user-attachments/assets/97ca67b4-919e-4018-b675-2a9e9d52a76b)
 <br>
 <br>
-![image](https://github.com/user-attachments/assets/426c7098-2e46-4148-8955-b55fd5bfd018)
+![image](https://github.com/user-attachments/assets/ad5484c6-efd0-4533-9705-784fe6bce261)
 <br>
 <br>
 ![image](https://github.com/user-attachments/assets/f646001d-a03a-4a90-bf46-5c7b94eb2740)
-<br>
-<br>
-![image](https://github.com/user-attachments/assets/48f921b6-9a74-4a1c-9a96-149c9715df16)
 <br>
 <br>
 ![image](https://github.com/user-attachments/assets/29181915-d951-49f1-818a-0135720e3a93)
