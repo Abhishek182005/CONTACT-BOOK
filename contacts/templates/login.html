@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<center>
+   <h1 class="display-5">Login To Contact Book</h1>
+</center>
+<br><br>
+<div class="container border border-dark p-3 mt-10" style="width: 550px">
+   <form action="{% url 'login' %}" method="POST">
+       {% csrf_token %}
+       <div class="form-group">
+           <label><b>Username</b></label>
+           <input type="text" name="username" class="form-control" placeholder="Username" required>
+       </div>
+       <br>
+       <div class="form-group">
+           <label><b>Password</b></label>
+           <input type="password" name="password" class="form-control" placeholder="Password" required>
+       </div>
+       <br>
+       <center>
+           <button type="submit" class="btn btn-primary">Login</button>  
+       </center>
+       <br>
+       <center>
+           <a href="{% url 'register' %}">Don't have an account? Register</a>
+       </center>
+       <center>
+           <a href="{% url 'admin:index' %}">Login as Administrator</a>
+       </center>
+   </form>
+   <br>
+</div>
+{% endblock %}

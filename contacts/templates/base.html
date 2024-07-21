@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Book System</title>
+    {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Contact Book System</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% if not user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'adder' %}">Add Contacts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'modifier' %}"
+                >Modify/Delete Contact</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'shower' %}">Show Contacts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'searcher' %}">Search Contacts</a>
+            </li>
+            <li class="nav-item">
+              <form method="post" action="{% url 'logout' %}" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-info">
+                  Logout
+                </button>
+              </form>
+            </li>
+            {% endif %}
+          </ul>
+          {% block search %} {% endblock %}
+        </div>
+        {% if user.is_authenticated %}
+        <a class="navbar-brand ms-auto" href="#"
+          >Welcome {{ request.user.first_name }}</a
+        >
+        {% endif %}
+      </div>
+    </nav>
+
+    {% if messages %}
+    <div class="container mt-3">
+      {% for message in messages %}
+      <div
+        class="alert alert-{{ message.tags }} alert-dismissible fade show"
+        role="alert"
+      >
+        {{ message }}
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      {% endfor %}
+    </div>
+    <script>
+      // Automatically close alerts after 3 seconds
+      setTimeout(function () {
+        var alerts = document.querySelectorAll(".alert");
+        alerts.forEach(function (alert) {
+          var alertInstance = new bootstrap.Alert(alert);
+          alertInstance.close();
+        });
+      }, 3000);
+    </script>
+    {% endif %} {% block content %} {% endblock %}
+  </body>
+</html>

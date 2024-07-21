@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            {% if book %}
+                <!-- Edit Form -->
+                <div class="card mt-4">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">MODIFY CONTACT</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Display current contact details in a table -->
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>SNO</th>
+                                    <th>Name</th>
+                                    <th>Numbers</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ book.SNO }}</td>
+                                    <td>{{ book.Name }}</td>
+                                    <td>{{ book.NUMBERS }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Edit form with current details filled in -->
+                        <form method="post" action="{% url 'modify_contact' %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="id_name">Name:</label>
+                                <input type="text" name="name" value="{{ book.Name }}" class="form-control" id="id_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="id_numbers">Numbers:</label>
+                                <input type="text" name="numbers" value="{{ book.NUMBERS }}" class="form-control" id="id_numbers">
+                            </div>
+                            <input type="hidden" name="sno" value="{{ book.SNO }}">
+                            <button type="submit" class="btn btn-primary">Modify Contact</button>
+                            <a href="{% url 'modifier' %}" class="btn btn-secondary">Back to Search</a>
+                        </form>
+                    </div>
+                </div>
+            {% else %}
+                <!-- Search Form -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">SEARCH CONTACT</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="{% url 'modifier' %}">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Results Table -->
+                {% if books %}
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h4 class="mb-0">Search Results</h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>SNO</th>
+                                        <th>Name</th>
+                                        <th>Numbers</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for book in books %}
+                                        <tr>
+                                            <td>{{ book.0 }}</td>
+                                            <td>{{ book.1 }}</td>
+                                            <td>{{ book.2 }}</td>
+                                            <td>
+                                                <a href="{% url 'modifier' %}?sno={{ book.0 }}" class="btn btn-warning btn-sm">Edit</a>
+                                                <form method="post" action="{% url 'deleter' %}" style="display:inline;">
+                                                    {% csrf_token %}
+                                                    <input type="hidden" name="sno" value="{{ book.0 }}">
+                                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                {% elif search_performed %}
+                    <h3>No record found</h3>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

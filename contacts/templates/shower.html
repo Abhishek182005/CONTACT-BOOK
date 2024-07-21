@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="container mt-5">
+<div class="card">
+  <div class="card-header bg-success text-white">
+    <h1>CONTACT LIST</h1>
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered text-center">
+      <thead>
+        <tr>
+          <th>SNO</th>
+          <th>Name</th>
+          <th>Phone Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.SNO }}</td>
+            <td>{{ book.Name }}</td>
+            <td>{{ book.NUMBERS }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<div>
+{% endblock %}
+

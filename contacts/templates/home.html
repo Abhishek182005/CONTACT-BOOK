@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+   <div class="row justify-content-center">
+     <div class="col-md-8">
+       {% if not user.is_authenticated %}
+       <div class="card">
+         <div class="card-header bg-warning text-dark text-center">
+           <h1 class="mb-0">Login or Register</h1>
+         </div>
+         <div class="card-body text-center">
+           <p class="lead">Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to access the Contact Book System.</p>
+         </div>
+       </div>
+       {% else %}
+       <div class="card">
+         <div class="card-header bg-primary text-white text-center">
+           <h1 class="mb-0">Contact Book System</h1>
+         </div>
+         <div class="card-body text-center">
+           <p class="lead">Welcome to the Contact Book System. Manage your contacts efficiently and effortlessly.</p>
+           <p class="mb-0">Use the navigation bar above to access various features.</p>
+         </div>
+       </div>
+       {% endif %}
+     </div>
+   </div>
+</div>
+{% endblock %}
